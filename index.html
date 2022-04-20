@@ -1,0 +1,46 @@
+<body>
+    <a href="#eng" data-reload>English</a>
+    <a href="#es" data-reload>Espanhol</a>
+
+    <p id="hi">
+        Welcome everyone!
+    </p>
+
+    <script>
+        // define language reload anchors
+        var dataReload = document.querySelectorAll("[data-reload]");
+        var hi = document.querySelector("#hi");
+        // language translation
+        var language = {
+            eng: {
+                welcome: "Welcome everyone!"
+            },
+            es: {
+                welcome: "Bienvenidos todos!"
+            }
+        };
+
+
+        //Define language via window hash
+        if (window.location.hash) {
+            if (window.location.hash === "#es") {
+                hi.textContent = language.es.welcome;
+
+            }
+        }
+
+        // define language reload onclick iliteration
+        for (i = 0; i <= dataReload.length; i++) {
+            dataReload[i].onclick = function () {
+                // location.reload();
+                setTimeout(function () {
+                location.reload();
+            }, 100);
+            };
+        }
+
+
+    </script>
+
+
+</body>
